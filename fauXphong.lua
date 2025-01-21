@@ -2,42 +2,15 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
--- Giả sử bạn đã khởi tạo Window
 local Window = Fluent:CreateWindow({
     Title = "Fau & Phong",
     SubTitle = "Phiên Bản: 2.0",
     TabWidth = 160,
-    Size = UDim2.fromOffset(600, 400),
+    Size = UDim2.fromOffset(480, 300),
     Acrylic = false,
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.End
 })
-
--- Danh sách các màu
-local colors = {
-    Color3.fromRGB(255, 0, 0),   -- Đỏ
-    Color3.fromRGB(255, 165, 0), -- Cam
-    Color3.fromRGB(255, 255, 0), -- Vàng
-    Color3.fromRGB(0, 255, 0),   -- Xanh lá
-    Color3.fromRGB(0, 0, 255),   -- Xanh dương
-    Color3.fromRGB(75, 0, 130),  -- Chàm
-    Color3.fromRGB(238, 130, 238) -- Tím
-}
-
-local delayTime = 0.5 -- Thời gian chuyển đổi màu (giây)
-
--- Hàm đổi màu tiêu đề
-task.spawn(function()
-    while true do
-        for _, color in ipairs(colors) do
-            Window:SetTitle({
-                Title = "Fau & Phong",
-                TitleColor = color -- Đổi màu tiêu đề
-            })
-            task.wait(delayTime) -- Đợi trước khi đổi sang màu tiếp theo
-        end
-    end
-end)
 local Tabs = {
     Main = Window:AddTab({ Title = "Trang Chủ", Icon = "home" }),
     Setting = Window:AddTab({ Title = "Cài Đặt", Icon = "settings" }),
